@@ -2,7 +2,8 @@ const myLibrary = [];
 const lib = document.querySelector(".library");
 const addBook = document.querySelector("#add-book");
 
-const dialog = document.querySelector("dialog");
+const modal = document.getElementById("modal-form");
+const closeModal = document.querySelector(".close");
 const form = document.querySelector("form");
 
 function Book(title,author,pages,read) {
@@ -51,11 +52,13 @@ function displayLibrary() {
         newBook.classList.add("book");
 
         const title = document.createElement("h3");
-        const author = document.createElement("p");
+        const author = document.createElement("i");
         const pages = document.createElement("p");
         const status = document.createElement("button");
         status.classList.add("complete");
+        const span = document.createElement("span");
         const trash = document.createElement("button");
+        trash.classList.add("bin");
 
         title.textContent=myLibrary[i].title;
         author.textContent=`by ${myLibrary[i].author}`;
@@ -68,11 +71,13 @@ function displayLibrary() {
         })
         if(myLibrary[i].read===true){
             status.textContent = "COMPLETE";
+            status.style.backgroundColor = "green";
         } else {
             status.textContent = "INCOMPLETE";
+            status.style.backgroundColor = "red";
         }
 
-        trash.textContent = "TRASH";
+        trash.innerHTML = `&times;`;
         trash.addEventListener(`click`, ()=>{
             removeBookFromLibrary(myLibrary[i]);
         })
@@ -80,15 +85,17 @@ function displayLibrary() {
         lib.appendChild(newBook);
 
         newBook.appendChild(title);
+        newBook.appendChild(span);
+        span.appendChild(trash);
         newBook.appendChild(author);
         newBook.appendChild(pages);
         newBook.appendChild(status);
-        newBook.appendChild(trash);
+        
     }
 }
 
 addBook.addEventListener('click', () =>{
-    dialog.showModal();
+    modal.style.display = "block";
 })
 form.addEventListener('submit', (e) =>{
     e.preventDefault();
@@ -98,8 +105,17 @@ form.addEventListener('submit', (e) =>{
     const readInput = document.querySelector("#read").checked;
     addBookToLibrary(new Book(titleInput,authorInput,pagesInput,readInput));
     form.reset();
-    dialog.close();
+    modal.style.display = "none";
 })
+closeModal.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
 const hobbit = new Book("The Hobbit","J.R.R. Tolkien",295,false);
 const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", 353, false);
 const maus = new Book("MAUS", "Art Spiegelman", 203, true);

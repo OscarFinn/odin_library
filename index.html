@@ -8,22 +8,30 @@
     <script src="library.js" defer></script>
 </head>
 <body>
-    <h1>Library</h1>
-    <dialog>
-        <form action="add-book">
-            <label for="title">Title:</label>
-            <input id="title" type="text">
-            <label for="author">Author:</label>
-            <input id="author" type="text">
-            <label for="pages">Number of Pages:</label>
-            <input id="pages" type="number">
-            <label for="read">Completed?:</label>
-            <input id="read" type="checkbox">
-            <input type="submit">
-        </form>
-    </dialog>
+    <div class="container">
+        <div class="header">
+            <h1>Library</h1>
+        </div>
+        <div id="modal-form" class="modal">
+            <form action="add-book">
+                <h2>Enter the books details <span class="close">&times;</span></h2>
+        
+                <div class="form-inputs">
+                    <label for="title">Title:</label>
+                    <input id="title" type="text">
+                    <label for="author">Author:</label>
+                    <input id="author" type="text">
+                    <label for="pages">Number of Pages:</label>
+                    <input id="pages" type="number">
+                    <label for="read">Completed?:</label>
+                    <input id="read" type="checkbox">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
         <div class="library">
             <button id="add-book">+</button>
         </div>
+    </div>
 </body>
 </html>
