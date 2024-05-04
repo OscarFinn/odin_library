@@ -46,13 +46,25 @@ function displayLibrary() {
         const title = document.createElement("h3");
         const author = document.createElement("p");
         const pages = document.createElement("p");
-        const status = document.createElement("p");
+        const status = document.createElement("button");
+        status.classList.add("complete");
         const trash = document.createElement("button");
 
         title.textContent=myLibrary[i].title;
         author.textContent=`by ${myLibrary[i].author}`;
         pages.textContent = `Pages: ${myLibrary[i].pages}`;
-        status.textContent = `Finished: ${myLibrary[i].read}`;
+        
+        status.addEventListener('click', ()=> {
+            console.log("toggle");
+            myLibrary[i].toggleRead();
+            displayLibrary();
+        })
+        if(myLibrary[i].read===true){
+            status.textContent = "COMPLETE";
+        } else {
+            status.textContent = "INCOMPLETE";
+        }
+
         trash.textContent = "TRASH";
         trash.addEventListener(`click`, ()=>{
             removeBookFromLibrary(myLibrary[i]);
@@ -88,5 +100,6 @@ const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", 453, false);
 const maus = new Book("MAUS", "Art Spiegelman", 203, true);
 addBookToLibrary(hobbit);
 addBookToLibrary(bloodMeridian);
+bloodMeridian.toggleRead();
 addBookToLibrary(maus);
 
