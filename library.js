@@ -74,6 +74,7 @@ form.addEventListener('submit', (e) =>{
     const pagesInput = document.querySelector("#pages").value;
     const readInput = document.querySelector("#read").value;
     addBookToLibrary(new Book(titleInput,authorInput,pagesInput,readInput));
+    form.reset();
     dialog.close();
 })
 const hobbit = new Book("The Hobbit","J.R.R. Tolkien",295,false);
