@@ -23,7 +23,7 @@ function Book(title,author,pages,read) {
 
 function addBookToLibrary(book) {
     console.log(book.title + " added to lib");
-    myLibrary.push(book);
+    myLibrary.unshift(book);
     //console.log(myLibrary);
     displayLibrary();
 }
@@ -38,7 +38,14 @@ function removeBookFromLibrary(book) {
     displayLibrary();
 }
 function displayLibrary() {
-    lib.textContent="";
+    //display each book on the page
+    //create a card for each book in the library
+    //lib.textContent="";
+    var books = document.getElementsByClassName('book');
+
+    while(books[0]) {
+        books[0].parentNode.removeChild(books[0]);
+    }
     for (let i=0; i<myLibrary.length ;i++) {
         const newBook = document.createElement("div");
         newBook.classList.add("book");
@@ -77,8 +84,6 @@ function displayLibrary() {
         newBook.appendChild(pages);
         newBook.appendChild(status);
         newBook.appendChild(trash);
-        //display each book on the page
-        //create a card for each book in the library
     }
 }
 
@@ -96,7 +101,7 @@ form.addEventListener('submit', (e) =>{
     dialog.close();
 })
 const hobbit = new Book("The Hobbit","J.R.R. Tolkien",295,false);
-const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", 453, false);
+const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", 353, false);
 const maus = new Book("MAUS", "Art Spiegelman", 203, true);
 addBookToLibrary(hobbit);
 addBookToLibrary(bloodMeridian);

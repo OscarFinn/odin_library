@@ -10,12 +10,18 @@ ul {
 a {
     text-decoration: none;
 }
-.library {
+.container {
     display:grid;
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
     border:2px solid red;
     margin: 2rem;
 }
+ .library {
+    border: 2px solid blue;
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+ }
 .book {
     border-radius: 8px;
+    border: 2px solid purple;
 }
