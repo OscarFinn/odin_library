@@ -61,8 +61,8 @@ function displayLibrary() {
         trash.classList.add("bin");
 
         title.textContent=myLibrary[i].title;
-        author.textContent=`by ${myLibrary[i].author}`;
-        pages.textContent = `Pages: ${myLibrary[i].pages}`;
+        author.textContent=`${myLibrary[i].author}`;
+        pages.textContent = `${myLibrary[i].pages} pages`;
         
         status.addEventListener('click', ()=> {
             console.log("toggle");
@@ -71,10 +71,10 @@ function displayLibrary() {
         })
         if(myLibrary[i].read===true){
             status.textContent = "COMPLETE";
-            status.style.backgroundColor = "green";
+            status.style.backgroundColor = "var(--colour-button)";
         } else {
             status.textContent = "INCOMPLETE";
-            status.style.backgroundColor = "red";
+            status.style.backgroundColor = "var(--colour-cancel)";
         }
 
         trash.innerHTML = `&times;`;
@@ -119,8 +119,10 @@ window.onclick = function(event) {
 const hobbit = new Book("The Hobbit","J.R.R. Tolkien",295,false);
 const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", 353, false);
 const maus = new Book("MAUS", "Art Spiegelman", 203, true);
+const dispossessed = new Book("The Dispossessed", "Ursula K Le Guin", 319, true)
 addBookToLibrary(hobbit);
 addBookToLibrary(bloodMeridian);
+addBookToLibrary(dispossessed);
 bloodMeridian.toggleRead();
 addBookToLibrary(maus);
 

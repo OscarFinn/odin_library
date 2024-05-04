@@ -1,4 +1,12 @@
-
+:root{
+    --colour-background: #F4F1DE;
+    --colour-highlight: #E07A5F;
+    --colour-button:  #3D405B;
+    --colour-text: #1b1d29;
+    --colour-book: #81B29A;
+    --colour-cancel: #b94f32;
+    --colour-accept: #4aa076;
+}
 *,
 *::before,
 *::after {
@@ -6,6 +14,12 @@
   padding: 0;
   margin: 0;
   border:none;
+  color: var(--colour-text);
+}
+.submit:hover,
+button:hover{
+    cursor: pointer;
+    filter:brightness(120%);
 }
 ul {
     list-style-type: none outside none;
@@ -13,13 +27,21 @@ ul {
 a {
     text-decoration: none;
 }
+body {
+    background-color:var(--colour-background);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.header{
+    font-size: 64px;
+    box-shadow: 0px 10px 0px var(--colour-highlight);
+    margin-bottom: 1em;
+}
 .container {
     max-width: 1600px;
     margin:0 auto;
     padding: 32px;
 }
  .library {
-    border: 2px solid blue;
     margin: 0 auto;
     display:grid;
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
@@ -28,18 +50,21 @@ a {
 
 .book {
     position:relative;
+    background-color: var(--colour-book);
     font-size: 16px;
     border-radius: 8px;
-    border: 2px solid purple;
     min-height: 300px;
     padding: 5rem 2rem;
 }
 .book h3{
     font-size:32px;
+    border-bottom: 2px solid var(--colour-text);
+    margin-bottom: 1em;
 }
+
 .bin {
     color:white;
-    background-color: red;
+    background-color: var(--colour-cancel);
 }
 dialog {
     display: grid;
@@ -56,58 +81,76 @@ dialog {
     width: 100%;
     height: 100%;
     overflow:auto;
+    
 }
 form{
-    background-color: white;
+    font-size: 24px;
+    border-radius: 8px;
+    background-color: var(--colour-background);
     margin: auto;
-    padding:20px;
-    border: 2px solid pink;
-    width: 50%;
+    padding:4em 2em;
+    width: 40%;
+    position:relative;
 }
 .form-inputs {
     display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    grid-template-columns: 1fr 3fr;
+    gap:16px;
 }
 
 
 input {
-    border: 2px solid black;
-    height: 2rem;
+    font-size: 24px;
+    grid-column: 1/span 2;
+    border-radius: 8px;
+    height: 2em;
 }
 .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    border:2px solid red;
+    position: absolute;
+    top:5px;
+    right:5px;
+    color: white;
+    background-color: var(--colour-cancel);
+    font-size: 50px;
+    font-weight: 800;
+    border-radius:8px;
+    position: absolute;
+    width: 15%;
 }
+        
 #add-book {
-    background-color: hsl(204, 73%, 47%);
+    background-color: var(--colour-button);
     font-size: 128px;
     border-radius: 8px;
     min-height: 300px;
     color: white;
 }
 .complete {
+    font-size: 16px;
+    font-weight: 800;
     position:absolute;
     border-radius:8px;
     bottom: 2rem;
     left: 2rem;
     color: white;
-    width:50%;
+    width:80%;
+    overflow: auto;
     padding: 1em;
 }
 #add-book:hover{
     font-size: 200px;
-    background-color: hsl(103, 100%, 50%);
 }
 .bin {
     font-size: 50px;
+    font-weight: 800;
     border-radius:8px;
     position: absolute;
     width: 15%;
     top:5px;
     right:5px;
     aspect-ratio:1/1;
+}
+.submit{
+    color:white;
+    background-color: var(--colour-button);
 }

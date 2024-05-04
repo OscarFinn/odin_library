@@ -14,18 +14,17 @@
         </div>
         <div id="modal-form" class="modal">
             <form action="add-book">
-                <h2>Enter the books details <span class="close">&times;</span></h2>
+                <button class="close">&times;</button>
+                <h2>Enter the books details</h2>
         
                 <div class="form-inputs">
-                    <label for="title">Title:</label>
-                    <input id="title" type="text">
-                    <label for="author">Author:</label>
-                    <input id="author" type="text">
+                    <input id="title" type="text" placeholder="Title" required>
+                    <input id="author" type="text" placeholder="Author" required>
                     <label for="pages">Number of Pages:</label>
-                    <input id="pages" type="number">
-                    <label for="read">Completed?:</label>
+                    <input id="pages" type="number" min=1 required>
+                    <label for="read">Finished?:</label>
                     <input id="read" type="checkbox">
-                    <input type="submit">
+                    <input type="submit" class="submit">
                 </div>
             </form>
         </div>
