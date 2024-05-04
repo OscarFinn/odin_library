@@ -13,7 +13,7 @@ function Book(title,author,pages,read) {
 
     this.toggleRead = function(){
         this.read = this.read ? false : true;
-        console.log(this.read);
+        //console.log(this.read);
     }
     this.info = function() {
         return `${this.title} by ${this.author} has ${this.pages} pages`
@@ -24,7 +24,7 @@ function Book(title,author,pages,read) {
 function addBookToLibrary(book) {
     console.log(book.title + " added to lib");
     myLibrary.push(book);
-    console.log(myLibrary);
+    //console.log(myLibrary);
     displayLibrary();
 }
 function removeBookFromLibrary(book) { 
@@ -72,7 +72,7 @@ form.addEventListener('submit', (e) =>{
     const titleInput = document.querySelector("#title").value;
     const authorInput = document.querySelector("#author").value;
     const pagesInput = document.querySelector("#pages").value;
-    const readInput = document.querySelector("#read").value;
+    const readInput = document.querySelector("#read").checked;
     addBookToLibrary(new Book(titleInput,authorInput,pagesInput,readInput));
     form.reset();
     dialog.close();
