@@ -1,5 +1,9 @@
 const myLibrary = [];
 const lib = document.querySelector(".library");
+const addBook = document.querySelector("#add-book");
+
+const dialog = document.querySelector("dialog");
+const form = document.querySelector("form");
 
 function Book(title,author,pages,read) {
     this.title = title;
@@ -21,6 +25,7 @@ function addBookToLibrary(book) {
     console.log(book.title + " added to lib");
     myLibrary.push(book);
     console.log(myLibrary);
+    displayLibrary();
 }
 function removeBookFromLibrary(book) { 
     const index = myLibrary.indexOf(book);
@@ -30,6 +35,7 @@ function removeBookFromLibrary(book) {
         myLibrary.splice(index,1);
         console.log(book.title + "removed from lib");
     }
+    displayLibrary();
 }
 function displayLibrary() {
     lib.textContent="";
@@ -57,12 +63,23 @@ function displayLibrary() {
         //create a card for each book in the library
     }
 }
+
+addBook.addEventListener('click', () =>{
+    dialog.showModal();
+})
+form.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    const titleInput = document.querySelector("#title").value;
+    const authorInput = document.querySelector("#author").value;
+    const pagesInput = document.querySelector("#pages").value;
+    const readInput = document.querySelector("#read").value;
+    addBookToLibrary(new Book(titleInput,authorInput,pagesInput,readInput));
+    dialog.close();
+})
 const hobbit = new Book("The Hobbit","J.R.R. Tolkien",295,false);
 const bloodMeridian = new Book("Blood Meridian", "Cormac McCarthy", 453, false);
 const maus = new Book("MAUS", "Art Spiegelman", 203, true);
 addBookToLibrary(hobbit);
 addBookToLibrary(bloodMeridian);
 addBookToLibrary(maus);
-removeBookFromLibrary(hobbit);
-displayLibrary();
 
