@@ -16,6 +16,9 @@
   border:none;
   color: var(--colour-text);
 }
+ul {
+    list-style: none;
+}
 .submit:hover,
 button:hover{
     cursor: pointer;
@@ -89,21 +92,27 @@ form{
     background-color: var(--colour-background);
     margin: auto;
     padding:4em 2em;
-    width: 40%;
+    width: 30%;
+    max-width: 800px;
     position:relative;
 }
-.form-inputs {
-    display:grid;
-    grid-template-columns: 1fr 3fr;
+.form-inputs ul{
+    display: grid;
     gap:16px;
 }
-
-
+li{
+    display:block;
+    grid-column: 1/span 1;
+}
+form h2{
+    margin-bottom: 1.15em;
+}
 input {
+    width:100%;
     font-size: 24px;
-    grid-column: 1/span 2;
     border-radius: 8px;
     height: 2em;
+    padding-left: 0.5em;
 }
 .close {
     position: absolute;
@@ -151,6 +160,9 @@ input {
     aspect-ratio:1/1;
 }
 .submit{
+    position:absolute;
+    bottom:25px;
+    width:85%;
     color:white;
     background-color: var(--colour-button);
 }
