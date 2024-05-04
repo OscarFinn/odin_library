@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+ul {
+    list-style-type: none outside none;
+}
+a {
+    text-decoration: none;
+}
+.library {
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    border:2px solid red;
+    margin: 2rem;
+}
+.book {
+    border-radius: 8px;
+}
