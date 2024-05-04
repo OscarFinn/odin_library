@@ -16,6 +16,25 @@
   border:none;
   color: var(--colour-text);
 }
+/* normalize.css sections as needed */
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+pre {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
 ul {
     list-style: none;
 }
