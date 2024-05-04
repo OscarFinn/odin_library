@@ -47,11 +47,16 @@ function displayLibrary() {
         const author = document.createElement("p");
         const pages = document.createElement("p");
         const status = document.createElement("p");
+        const trash = document.createElement("button");
 
         title.textContent=myLibrary[i].title;
         author.textContent=`by ${myLibrary[i].author}`;
         pages.textContent = `Pages: ${myLibrary[i].pages}`;
-        status.textContent = `${myLibrary[i].read}`;
+        status.textContent = `Finished: ${myLibrary[i].read}`;
+        trash.textContent = "TRASH";
+        trash.addEventListener(`click`, ()=>{
+            removeBookFromLibrary(myLibrary[i]);
+        })
 
         lib.appendChild(newBook);
 
@@ -59,6 +64,7 @@ function displayLibrary() {
         newBook.appendChild(author);
         newBook.appendChild(pages);
         newBook.appendChild(status);
+        newBook.appendChild(trash);
         //display each book on the page
         //create a card for each book in the library
     }
